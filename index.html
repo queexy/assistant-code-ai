@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Kod Asystent</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://unpkg.com/alpinejs"></script>
+</head>
+<body class="app" x-data="aiHelper()">
+  <div class="container">
+    <h1>🤖 AI Kod Asystent</h1>
+    <select x-model="mode">
+      <option value="code">📝 Napisz kod</option>
+      <option value="error">🐛 Tłumacz błąd</option>
+      <option value="fix">🧹 Popraw kod</option>
+      <option value="optimize">⚡ Optymalizuj kod</option>
+    </select>
+
+    <textarea x-model="userInput" placeholder="Wpisz opis, kod lub błąd..."></textarea>
+    <button @click="askAI()">Wyślij do AI</button>
+
+    <div class="response" x-show="response">
+      <h2>Odpowiedź AI:</h2>
+      <pre x-text="response"></pre>
+    </div>
+  </div>
+</body>
+<script src="script/app-ai.js"></script>
+</html>
